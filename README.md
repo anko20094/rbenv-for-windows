@@ -4,8 +4,8 @@
 
 <p>
 
-<a href="https://github.com/ccmywish/rbenv-for-windows/blob/main/LICENSE">
-    <img src="https://img.shields.io/github/license/ccmywish/rbenv-for-windows.svg" alt="License" />
+<a href="https://github.com/RubyMetric/rbenv-for-windows/blob/main/LICENSE.txt">
+    <img src="https://img.shields.io/github/license/RubyMetric/rbenv-for-windows.svg" alt="License" />
 </a>
 
 </p>
@@ -31,26 +31,35 @@ There's a simple [record](./doc/benchmark.md) to show if `rbenv` will influence 
 
 ## Screenshot
 
-![screenshot](images/screenshot.png)
+![screenshot](image/screenshot.png)
 
 <br>
 
 ## Install
 
-**Requirements:**
+### Requirements
 
 - Windows 7 SP1+ / Windows Server 2008+
 - [PowerShell 5](https://aka.ms/wmf5download) (or later, include [PowerShell Core](https://docs.microsoft.com/en-us/powershell/scripting/install/installing-powershell-core-on-windows?view=powershell-6)) and [.NET Framework 4.5](https://www.microsoft.com/net/download) (or later)
 
-    PowerShell must be enabled for your user account e.g. `Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser`
+    PowerShell must be enabled for your user account e.g.
+    ```powershell
+    Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+    ```
 
+- cURL
 - Git
+- 7zip
 
 <br>
 
-**It's portable, be bold to try it now:**
+### Install Guides
 
-### For common users
+> [!TIP]
+> **It's portable, be bold to try it now**
+
+<details>
+<summary>For common users</summary>
 
 First, input and run these commands in your terminal:
 
@@ -58,7 +67,7 @@ First, input and run these commands in your terminal:
 # Customize the location you want to install to,
 # preferably without spaces, as it has not been tested
 $env:RBENV_ROOT = "C:\Ruby-on-Windows"
-iwr -useb "https://github.com/ccmywish/rbenv-for-windows/raw/main/tools/install.ps1" | iex
+iwr -useb "https://github.com/RubyMetric/rbenv-for-windows/raw/main/tool/install.ps1" | iex
 ```
 
 Then, in your `$profile`, you should add theses:
@@ -73,7 +82,7 @@ $env:RBENV_ROOT = "C:\Ruby-on-Windows"
 
 & "$env:RBENV_ROOT\rbenv\bin\rbenv.ps1" init
 ```
-After adding these configurations to your $profile, restart your terminal for the changes to take effect.
+After adding these configurations to your $profile `notepad.exe $profile`, restart your terminal for the changes to take effect.
 
 To update, use the following command:
 
@@ -83,9 +92,12 @@ rbenv update
 
 Note that, this tool is still under active development, if you've encountered some error, UPDATE FIRST!
 
+</details>
+
 <br>
 
-### For Chinese users
+<details>
+<summary>For Chinese users</summary>
 
 中国大陆用户请使用以下方式，通过Gitee避免网络问题，以及使用内置CN镜像。
 
@@ -94,11 +106,11 @@ Note that, this tool is still under active development, if you've encountered so
 ```PowerShell
 # 自定义你想安装到的位置，最好不要有空格，因为没有测试过
 $env:RBENV_ROOT = "C:\Ruby-on-Windows"
-$s = (iwr -useb "https://gitee.com/ccmywish/rbenv-for-windows/raw/main/tools/install.ps1")
+$s = (iwr -useb "https://gitee.com/RubyMetric/rbenv-for-windows/raw/main/tool/install.ps1")
 icm -sc ([scriptblock]::Create($s.Content)) -arg "install", "cn"
 ```
 
-其次，在你的 `$profile` 中, 添加这些内容:
+其次，在你的 `$profile` `notepad.exe $profile` 中, 添加这些内容:
 
 ```PowerShell
 # rbenv for Windows
@@ -118,6 +130,21 @@ rbenv update cn
 ```
 
 请注意，此工具仍在积极开发中，如果您遇到了一些错误，请先更新!
+
+</details>
+
+<br>
+
+<details>
+<summary>For Russian users</summary>
+
+You can refer to this article by [@SKOLIA0](https://github.com/SKOLIA0)
+
+Вы можете обратиться к этой статье [@SKOLIA0](https://github.com/SKOLIA0)
+
+https://github.com/SKOLIA0/rbenv-for-windows/blob/main/README_RU.md
+
+</details>
 
 <br>
 
